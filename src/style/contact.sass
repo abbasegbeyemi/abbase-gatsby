@@ -1,0 +1,63 @@
+#contact
+  .row, .col
+    padding: 15px
+    max-width: 600px
+
+  .field
+    + .field
+      margin: 30px 0
+
+    label
+      display: block
+      padding: 0 30px
+
+      &.ib
+        display: inline-block
+
+  .submit-zone
+    text-align: center
+
+  .details
+    padding: 25px 15px !important
+
+    ul
+      list-style: none
+
+      ul
+        li:not(:last-child)
+          position: relative
+
+        .icon
+          position: absolute
+          left: 0
+          top: 3px
+
+      li ul li
+        display: block
+        //margin: 0 10px
+        padding: 10px 0
+
+        a
+          display: inline-block
+
+          img
+            width: 48px
+
+  .no-form
+    text-align: center
+
+    .details ul li:not(:last-child)
+      display: inline-block
+      margin: 24px
+      text-align: left
+      vertical-align: middle
+
+      .icon
+        position: absolute
+        left: 0
+        top: 50%
+        transform: translate(0, -50%)
+
+@media only screen and (max-width: 800px)
+  #contact .field label
+    padding: 0
