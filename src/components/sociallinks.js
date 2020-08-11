@@ -4,12 +4,12 @@ import LD from "../../static/images/linkedin.svg"
 import TW from "../../static/images/twitter.svg"
 import GH from "../../static/images/github.svg"
 
-
 const ListItem = props => {
     const data = props.data;
     return (
         <li>
-            <a href={data.url} title={data.name}>
+            <a href={data.url} title={data.name} target="_blank"
+               rel="noopener noreferrer">
                 {props.children}
             </a>
         </li>

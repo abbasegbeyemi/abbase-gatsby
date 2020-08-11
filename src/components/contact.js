@@ -2,7 +2,7 @@ import React from "react";
 import SectionTitle from "./sectiontitle";
 import {StaticQuery, graphql} from "gatsby";
 import {PaperPlane, Loading} from "./icons";
-import "../style/contact.sass";
+import "../style/contact.scss";
 
 class Contact extends React.Component {
     constructor(props) {
@@ -118,12 +118,12 @@ class Contact extends React.Component {
                     <SectionTitle title="Contact"/>
                 </div>
                 <div
-                    className={"row" + (this.showContactForm ? "" : " no-form")}
+                    className={(this.showContactForm ? "" : " no-form")}
                     ref={c => (this.contactArea = c)}
                 >
                     {this.showContactForm && (
 
-                        <div className="m6">
+                        <div className="form-area">
                             <p className="content-bg">
                                 Send me a message, or connect with me on social media via the links below.
                             </p>

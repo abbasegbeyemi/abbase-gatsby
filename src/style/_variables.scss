@@ -1,0 +1,77 @@
+$theme-map: ();
+
+$themes: (
+        light: (
+                bg: #ffffff,
+                textPrimary: #343012,
+                textSecondary: #a09353,
+                textAccent: #132670,
+                textNormal: #393835,
+                colorPrimary: #a0933,
+                colorSecondary: #1c1334,
+                colorAccent: #6c4a80,
+                colorError: #F55555,
+                colorSuccess: #4CAF50,
+        ),
+        dark: (
+                bg: #0c0f13,
+                textPrimary: #d0d0d0,
+                textSecondary: #68dfdf,
+                textAccent: #90b7b4,
+                textNormal: #b7bebf,
+                colorPrimary: #68dfdf,
+                colorSecondary: #f5d255,
+                colorError: #F55555,
+                colorSuccess: #4CAF50,
+                colorAccent: #c44118,
+        )
+);
+
+
+// Variables for the strings in theme
+$bg: 'bg';
+$textPrimary: 'textPrimary';
+$textSecondary: 'textSecondary';
+$textAccent: 'textAccent';
+$textNormal: 'textNormal';
+$colorPrimary: 'colorPrimary';
+$colorSecondary: 'colorSecondary';
+$colorError: 'colorError';
+$colorSuccess: 'colorSuccess';
+$colorAccent: 'colorAccent';
+
+@mixin themify($themes: $themes) {
+        @each $theme, $map in $themes {
+                .theme-#{$theme} & {
+                        $theme-map: () !global;
+                        @each $key, $submap in $map {
+                                $value: map-get(map_get($themes, $theme), '#{$key}');
+                                $theme-map: map_merge($theme-map, ($key: $value)) !global;
+                        }
+                        @content;
+                        $theme-map: null !global;
+                }
+        }
+}
+
+@function t($key){
+        @return map_get($theme-map, $key);
+}
+
+
+// Variables for the strings in fonts
+
+$bold: 'bold';
+$normal: 'normal';
+
+$fonts: (
+        bold: sans-serif,
+        normal: ('Poppins', serif),
+);
+
+@function f($key){
+        @return map_get($fonts, $key)
+}
+
+
+

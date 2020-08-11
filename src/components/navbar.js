@@ -5,7 +5,7 @@ import NavLinks from "./navlinks";
 import SocialLinks from "./sociallinks";
 import Logo from "./logo"
 import {Hamburger} from "./icons";
-import "../style/navbar.sass"
+import "../style/navbar.scss"
 
 const SidebarContents = () => {
     return (
@@ -15,7 +15,7 @@ const SidebarContents = () => {
                     <Logo/>
                 </Link>
             </div>
-            <div className="links text-secondary">
+            <div className="links">
                 <NavLinks/>
             </div>
             <div className="social-buttons">
@@ -77,7 +77,7 @@ class NavBar extends React.Component {
     }
 
     render() {
-        const placeholder = this.props.placeholder
+        // const placeholder = this.props.placeholder
         return (
             <React.Fragment>
                 <Sidebar sidebar={<SidebarContents/>}
@@ -112,12 +112,12 @@ class NavBar extends React.Component {
                     </Link>
                     <NavLinks/>
                 </nav>
-                {placeholder && (
-                    <div className="navbar-placeholder" style={{
-                        height: `${this.state.navBarPlaceholderHeight}px`
-                    }}>
-                    </div>
-                )}
+                {/*{placeholder && (*/}
+                {/*    <div className="navbar-placeholder" style={{*/}
+                {/*        height: `${this.state.navBarPlaceholderHeight}px`*/}
+                {/*    }}>*/}
+                {/*    </div>*/}
+                {/*)}*/}
             </React.Fragment>
         )
     }

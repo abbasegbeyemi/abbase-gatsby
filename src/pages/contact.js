@@ -8,7 +8,7 @@ const ContactPage = () => {
     return (
         <Layout>
             <SEO title="Contact"/>
-            <div style={{minHeight: "75vh"}}>
+            <div style={{minHeight: "100vh"}}>
                 <Contact/>
             </div>
         </Layout>

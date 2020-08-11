@@ -1,0 +1,288 @@
+@import "variables";
+
+
+nav {
+  @include themify($themes) {
+    background: t($bg);
+    color: t($colorSecondary);
+  }
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  justify-content: space-between;
+  padding: 22px 44px;
+  align-items: center;
+  z-index: 99;
+  transition: height 0.25s, background 0.25s;
+
+
+  ul {
+    list-style: none;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+
+      a {
+        margin: 0 10px;
+        position: relative;
+        text-decoration: none;
+        @include themify($themes) {
+          color: t($colorSecondary);
+        }
+
+
+        &:before {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 3px;
+          left: 0;
+          top: 100%;
+          opacity: 0.7;
+          transition: width 0.25s;
+        }
+
+        &:focus:before, &:hover:before {
+          width: 100%;
+        }
+
+        span {
+          position: relative;
+          z-index: 2;
+        }
+      }
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    //background: linear-gradient(to left, $colorPrimary, $colorSecondary)
+    //background: $colorSecondary;
+    opacity: 0;
+    transition: opacity .1s, width 0.8s;
+  }
+
+  #menu-open {
+    position: absolute;
+    left: 5%;
+    display: none;
+
+    .icon {
+      width: 32px;
+      height: 32px;
+
+      path {
+        @include themify($themes) {
+          fill: t($colorSecondary)
+        }
+
+      }
+    }
+  }
+
+
+  .logo {
+    width: 70px;
+    height: auto;
+    align-items: center;
+    transition: width 0.25s;
+  }
+
+
+  &.scrolled {
+    //background: t($bg);
+    padding: 12px 36px;
+
+    .logo {
+      width: 60px;
+
+    }
+
+    &:after {
+      opacity: .5;
+      width: 100%;
+    }
+
+
+  }
+}
+
+ .switch-theme {
+    svg {
+      width: 24px;
+      height: 24px;
+
+      path {
+        @include themify($themes) {
+          fill: t($colorSecondary);
+        }
+      }
+    }
+
+    .switch-button {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      overflow: hidden;
+
+
+      div {
+        position: absolute;
+        transform: scale(0, 0);
+        transition: transform 0.35s;
+        cursor: pointer;
+
+
+        &.active {
+          transform: scale(1, 1);
+        }
+      }
+    }
+  }
+
+.sidebar-content {
+  padding: 22px;
+  min-width: 45%;
+  max-width: 75%;
+  @include themify($themes) {
+    background: t($bg);
+    color: t($colorSecondary) !important;
+  }
+
+  .sidebar-contents {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    .switch-theme {
+      display: inline-block;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .switch-button {
+        width: 24px;
+        height: 24px;
+        position: relative;
+        overflow: hidden;
+
+        div {
+          position: absolute;
+          transform: scale(0, 0);
+          transition: transform 0.35s;
+          cursor: pointer;
+
+          &.active {
+            transform: scale(1, 1);
+          }
+        }
+      }
+    }
+
+    .logo {
+      flex: 0 0 auto;
+      width: 50px;
+    }
+
+    .links {
+      flex: 1 1 auto;
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+
+
+      ul {
+        list-style: none;
+
+        li {
+          margin: 20px 0;
+        }
+
+        a {
+          text-decoration: none;
+          @include themify($themes) {
+            color: t($colorSecondary) !important;
+          }
+        }
+      }
+    }
+
+    .social-buttons ul {
+      list-style: none;
+
+
+      li {
+        display: inline-block;
+        width: 40px;
+        margin: 5px;
+      }
+
+      svg {
+        width: 100%;
+
+        #inside {
+          @include themify($themes) {
+            fill: t($bg) !important;
+          }
+        }
+
+        #outside {
+          @include themify($themes) {
+            fill: t($colorSecondary) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.activeLink:before {
+  width: 100%;
+}
+
+.nologo {
+  opacity: 0
+}
+
+@media only screen and (max-width: 800px) {
+  nav {
+    justify-content: center;
+
+
+    .logo {
+      width: 60px;
+    }
+
+    &.scrolled {
+      padding: 10px 36px;
+
+
+      .logo {
+        width: 24px;
+      }
+    }
+
+    ul {
+      display: none;
+    }
+
+    #menu-open {
+      display: block;
+    }
+  }
+}
+
+
+

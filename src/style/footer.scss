@@ -1,0 +1,37 @@
+@import "variables";
+
+
+footer {
+  padding: 30px 0;
+  text-align: center;
+  @include themify($themes) {
+    background: darken(t($bg), 4%);
+  }
+
+  .logo {
+    margin-bottom: 15px;
+    width: 50px;
+  }
+
+  .social-buttons ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    width: 40px;
+    margin: 8px;
+  }
+}
+
+.container{
+  @include themify($themes){
+    color: t($textPrimary);
+  }
+  a{
+    @include themify($themes){
+        color: t($textAccent);
+    }
+
+  }
+}

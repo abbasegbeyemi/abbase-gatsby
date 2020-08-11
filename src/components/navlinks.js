@@ -25,14 +25,14 @@ class ThemeSwitcherButton extends React.Component {
         const _this = this
         let darkMode = localStorage.getItem("darkMode");
 
-        document.body.className = _this.state.darkMode ? "darkMode" : "";
+        document.body.className = _this.state.darkMode ? "theme-dark" : "theme-light";
         if (darkMode) {
             this.setState(
                 {
                     darkMode: darkMode === "true"
                 },
                 () => {
-                    document.body.className = _this.state.darkMode ? "darkMode" : "";
+                    document.body.className = _this.state.darkMode ? "theme-dark" : "theme-light";
                 }
             );
         }
@@ -42,7 +42,7 @@ class ThemeSwitcherButton extends React.Component {
                 darkMode: !_this.state.darkMode
             });
             localStorage.setItem("darkMode", _this.state.darkMode)
-            document.body.className = _this.state.darkMode ? "darkMode" : "";
+            document.body.className = _this.state.darkMode ? "theme-dark" : "theme-light";
         });
     }
 
@@ -52,14 +52,14 @@ class ThemeSwitcherButton extends React.Component {
                 <li className="switch-theme">
                     <div className="switch-button"
                          ref={c => (this.switchBtn = c)}>
-                        <div title="Switch to Dark Mode"
+                        <div title="Switch to light mode"
                              data-switch-to="dark"
-                             className={!this.state.darkMode ? "active" : ""}>
+                             className={this.state.darkMode ? "active" : ""}>
                             <Sun/>
                         </div>
-                        <div title="Switch to Light Mode"
+                        <div title="Switch to dark mode"
                              data-switch-to="light"
-                             className={this.state.darkMode ? "active" : ""}>
+                             className={!this.state.darkMode ? "active" : ""}>
                             <Moon/>
                         </div>
                     </div>
