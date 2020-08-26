@@ -151,7 +151,8 @@ class IndexPage extends React.Component {
             <SocialLinks/>
           </div>
         </div>
-        <ProjectsListed id="projects" limit={2}/><Contact/>
+        <ProjectsListed id="projects" limit={2}/>
+        <Contact/>
       </Layout>
     )
   }
